@@ -139,4 +139,31 @@ storiesOf("Button", module)
         onClose={action("onClose")} 
       />
     );
-    });
+    })
+    .add("Form Create", () => {
+      return (
+        <Form
+          interviewers={interviewers}
+          onSave={action("onSave")}
+          onCancel={action("onCancel")} 
+        />
+      );
+    })
+    .add("Form Edit", () => {
+      return(
+      <Form 
+        name={"Archie Cohen"} 
+        interviewer={1}
+        interviewers={interviewers}
+        onSave={action("onSave")}
+        onCancel={action("onCancel")}
+        /> 
+      )
+    })
+    .add("Appointment Empty", () => (
+      <Fragment>
+        <Appointment id={1} time="12pm" />
+        <Appointment id="last" time="1pm" />
+      </Fragment>
+    )
+    );
