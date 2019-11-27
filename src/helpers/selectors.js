@@ -1,5 +1,4 @@
-
-export default function getAppointmentsForDay(state, day) {
+const getAppointmentsForDay = function(state, day) {
   let appoints = [];
   for (let appDay of state.days) {
     if (appDay.name === day) {
@@ -13,3 +12,17 @@ export default function getAppointmentsForDay(state, day) {
   }
   return result;
 }
+
+const getInterview = function(state, interview) {
+  if (!interview) {
+    return null;
+  }
+  const appointment = {"student": interview.student,
+    "interviewer": state.interviewers[interview.interviewer]};
+  return appointment;
+}
+
+module.exports = {
+  getAppointmentsForDay,
+  getInterview
+};
