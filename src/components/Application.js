@@ -25,7 +25,6 @@ export default function Application(props) {
     });
   }, [])
 
-  const appts = getAppointmentsByDay(state, state.day);
   const interviewers = getInterviewersByDay(state, state.day);
 
   const bookInterview = function(id, interview) {
@@ -54,15 +53,13 @@ export default function Application(props) {
     })
   }
 
-  const schedule = appts.map((appointment) => {
-    const interview = getInterview(state, appointment.interview);
-
+  const appointments = getAppointmentsByDay(state, state.day).map(appointment => {
     return (
       <Appointment
         key={appointment.id}
         id={appointment.id}
         time={appointment.time}
-        interview={interview}
+        interview={getInterview(state, appointment.interview)}
         interviewers={interviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
@@ -73,18 +70,14 @@ export default function Application(props) {
   return (
     <main className="layout">
       <section className="sidebar">
-          <img
+        <img
           className="sidebar--centered"
           src="images/logo.png"
           alt="Interview Scheduler"
         />
         <hr className="sidebar__separator sidebar--centered" />
         <nav className="sidebar__menu">
-          <DayList
-            days={state.days}
-            day={state.day}
-            setDay={setDay}
-            />
+          <DayList days={state.days} day={state.day} setDay={setDay} />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"
@@ -93,7 +86,7 @@ export default function Application(props) {
         />
       </section>
       <section className="schedule">
-        {schedule}
+        {appointments}
         <Appointment key="last" time="5pm" />
       </section>
     </main>
