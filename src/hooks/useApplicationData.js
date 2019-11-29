@@ -13,7 +13,10 @@ const reducer = function(state, action) {
       const arr = action.all;
       return {...state, days: arr[0].data, appointments: arr[1].data, interviewers: arr[2].data};
     case SET_INTERVIEW:
-      return { ...state, appointments: action.appointments};
+      const index = state.days.findIndex(element => element.name === state.day);
+      let newDays = state.days;
+      newDays[index].spots+= action.value;
+      return { ...state, days: newDays, appointments: action.appointments};
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -47,7 +50,7 @@ export default function useApplicationData() {
     };
     return axios.put(`http://localhost:8001/api/appointments/${id}`, appointment)
     .then(() => {
-      dispatch({type: SET_INTERVIEW, appointments});
+      dispatch({type: SET_INTERVIEW, appointments, value: -1});
     });
   };
   
@@ -58,7 +61,7 @@ export default function useApplicationData() {
     };
     return axios.delete(`http://localhost:8001/api/appointments/${id}`)
     .then(() => {
-      dispatch({type: SET_INTERVIEW, appointments});
+      dispatch({type: SET_INTERVIEW, appointments, value: 1});
     })
   };
 
