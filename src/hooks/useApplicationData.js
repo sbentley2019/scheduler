@@ -13,10 +13,17 @@ const reducer = function(state, action) {
       const arr = action.all;
       return {...state, days: arr[0].data, appointments: arr[1].data, interviewers: arr[2].data};
     case SET_INTERVIEW:
-      const index = state.days.findIndex(element => element.name === state.day);
-      let newDays = state.days;
-      newDays[index].spots+= action.value;
-      return { ...state, days: newDays, appointments: action.appointments};
+      const newDays = state.days.map((day) => {
+        if (day.name === state.day) {
+          return {...day, spots: day.spots + action.value}
+        }
+        return day;
+      })
+      return { 
+        ...state, 
+        days: newDays, 
+        appointments: action.appointments
+      };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
