@@ -60,19 +60,20 @@ export default function useApplicationData() {
 
     // socket.addEventListener("open", () => {
     //   console.log("connected");
-    //   dispatch({ type: SET_SOCKET, value: socket });
+    //   // dispatch({ type: SET_SOCKET, value: socket });
     // });
 
     // socket.addEventListener("message", msg => {
     //   console.log("msg", msg.data);
     //   const data = JSON.parse(msg.data);
     //   console.log(data);
+    // });
 
     //   const appointments = {
     //     ...state.appointments,
     //     [data.id]: data.interview
     //   };
-    //   dispatch({ type: data.type, appointments, value: (data.interview ? -1 : 1), fromRemote: true});
+    //   dispatch({ type: data.type, appointments, value: (data.interview ? -1 : 1), fromServer: true});
     // });
 
     // return () => {
@@ -89,6 +90,7 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
+    console.log("bookInterview: ", id, interview);
     return axios.put(`http://localhost:8001/api/appointments/${id}`, appointment)
       .then(() => {
         dispatch({type: SET_INTERVIEW, appointments, value: -1});

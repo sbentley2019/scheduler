@@ -3,7 +3,6 @@ import InterviewListItem from "./InterviewerListItem";
 import "components/InterviewList.scss"
 
 export default function InterviewList(props) {
-
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>
@@ -20,4 +19,4 @@ export default function InterviewList(props) {
       </ul>
     </section>
   );
-}
+};
