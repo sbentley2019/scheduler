@@ -3,7 +3,15 @@
 Interview Scheduler is an application that displays a schedule of interview appointments made Monday to Friday from 12 till 5pm. It was created by Stewart Bentley at Lighthouse Labs web dev bootcamp on weeks 7-8 to demonstate making an app using react, Webpack Development Server, Jest Test Framework and Storybook.
 
 ## Screenshots
+!["Interview Scheduler"](https://github.com/sbentley2019/scheduler/blob/master/public/docs/InterviewScheduler.png?raw=true)
 
+!["Interview Scheduler add appointment"](https://github.com/sbentley2019/scheduler/blob/master/public/docs/InterviewScheduler-AddAppointment.png?raw=true)
+
+!["Interview Scheduler saved appointment"](https://github.com/sbentley2019/scheduler/blob/master/public/docs/InterviewScheduler-SavedAppointment.png?raw=true)
+
+!["Interview Scheduler delete appointment"](https://github.com/sbentley2019/scheduler/blob/master/public/docs/InterviewScheduler-DeleteAppointment.png?raw=true)
+
+!["Interview Scheduler edit appointment"](https://github.com/sbentley2019/scheduler/blob/master/public/docs/InterviewScheduler-EditAppointment.png?raw=true)
 
 ## Getting Started
 
