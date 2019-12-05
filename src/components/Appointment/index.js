@@ -25,20 +25,27 @@ export default function Appointment(props) {
     );
     
   const save = function(name, interviewer) {
+    // A function that calls bookInterview and transitions mode
+    let isEdit = false;
+    if (props.interview) {
+      isEdit = true;
+    }
+
     const interview = {
       student: name,
       interviewer
     };
     transition(SAVING);
     props
-      .bookInterview(props.id, interview)
+      .bookInterview(props.id, interview, isEdit)
       .then(()=> transition(SHOW))
       .catch((err) => {
         transition(ERROR_SAVE, true);
-      })
-  }
+      });
+  };
 
   const deleteInterview = function(id){
+    // A function that call cancelInterview and transitions mode
     transition(DELETING, true);
     props
       .cancelInterview(id)
@@ -47,8 +54,8 @@ export default function Appointment(props) {
       })
       .catch((err) => {
         transition(ERROR_DELETE, true);
-      })
-  }
+      });
+  };
 
   return (
     <article className="appointment" data-testid="appointment">
@@ -95,4 +102,4 @@ export default function Appointment(props) {
       )}
     </article>
   );
-}
+};

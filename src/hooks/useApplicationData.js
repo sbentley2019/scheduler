@@ -12,6 +12,7 @@ export default function useApplicationData() {
   const setDay = day => dispatch({type: SET_DAY, day});
   
   useEffect(() => {
+    // Uses axios to retrieve all the data from the database and sends it to the reducer function.
     Promise.all([
       axios.get('/api/days'),
       axios.get('/api/appointments'),
@@ -21,7 +22,8 @@ export default function useApplicationData() {
     });
   }, [])
   
-  const bookInterview = function(id, interview) {
+  const bookInterview = function(id, interview, isEdit) {
+    // A function that takes in an id and an interview, then uses those values to make a axios put request.
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -30,20 +32,20 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
-    console.log("bookInterview: ", id, interview);
     return axios.put(`/api/appointments/${id}`, appointment)
-      .then(() => {
-        dispatch({type: SET_INTERVIEW, appointments, value: -1});
+      .then((res) => {
+        dispatch({type: SET_INTERVIEW, appointments, value: (isEdit ? 0 : -1)});
       });
   };
   
   const cancelInterview = function(id) {
+    // A function that takes in an id and makes an axios delete request with that value.
     const appointments = {
       ...state.appointments,
       [id]: {...state.appointments[id], interview: null}
     };
     return axios.delete(`/api/appointments/${id}`)
-      .then(() => {
+      .then((res) => {
         dispatch({type: SET_INTERVIEW, appointments, value: 1});
       });
   };

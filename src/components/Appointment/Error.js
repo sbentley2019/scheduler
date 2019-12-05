@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Error(props) {
+  // Error component consists of a title, a message and a close image.
   return (
     <main className="appointment__card appointment__card--error">
       <section className="appointment__error-message">
@@ -15,4 +16,4 @@ export default function Error(props) {
       />
     </main>
   );
-}
+};

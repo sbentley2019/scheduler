@@ -16,6 +16,7 @@ export default function Application(props) {
   const interviewers = getInterviewersByDay(state, state.day);
 
   const appointments = getAppointmentsByDay(state, state.day).map(appointment => {
+    // Makes an array of appointments
     return (
       <Appointment
         key={appointment.id}
@@ -53,4 +54,4 @@ export default function Application(props) {
       </section>
     </main>
   );
-}
+};
