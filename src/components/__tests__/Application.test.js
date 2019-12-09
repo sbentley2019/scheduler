@@ -131,19 +131,18 @@ describe("Application", () => {
       target: { value: "Lydia Miller-Jones" }
     });
 
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"))
+
     // 5. Click the "Save" button.
     fireEvent.click(getByText(appointment, "Save"));
 
-    // 6. Expect the saving status component to display.
-    expect(getByText(appointment, /saving/i)).toBeInTheDocument();
-
-    // 7. Wait for an Error message to display.
+    // 6. Wait for an Error message to display.
     await waitForElement(() => queryByText(appointment, "Error"));
 
-    // 8. Click close on the error message.
+    // 7. Click close on the error message.
     fireEvent.click(getByAltText(appointment, "Close"));
 
-    // 9. Make sure there was no change to the spots remaining.
+    // 8. Make sure there was no change to the spots remaining.
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
