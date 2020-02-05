@@ -17,7 +17,7 @@ Interview Scheduler is a single page application that displays a schedule of int
 ## Getting Started
 
 1. Clone this repository into a local folder.
-2. Clone the server `https://github.com/sbentley2019/scheduler-api` into a local folder.
+2. Clone the server <https://github.com/sbentley2019/scheduler-api/> into a local folder.
 3. Install both dependencies using the `npm install`.
 4. Start both the server and web client using the `npm start` command.
 5. Go to <http://localhost:8000/> in your browser.
