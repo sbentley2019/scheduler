@@ -1,8 +1,9 @@
 # Interview Scheduler
 
-Interview Scheduler is an application that displays a schedule of interview appointments made Monday to Friday from 12 till 5pm. It was created by Stewart Bentley at Lighthouse Labs web dev bootcamp on weeks 7-8 to demonstate making an app using react, Webpack Development Server, Jest Test Framework and Storybook.
+Interview Scheduler is a single page application that displays a schedule of interview appointments made Monday to Friday from 12 till 5pm. It was created by Stewart Bentley at Lighthouse Labs web dev bootcamp on weeks 7-8 to demonstate making an app using react, Webpack Development Server, Jest Test Framework and Storybook.
 
 ## Screenshots
+
 !["Interview Scheduler"](https://github.com/sbentley2019/scheduler/blob/master/public/docs/InterviewScheduler.png?raw=true)
 
 !["Interview Scheduler add appointment"](https://github.com/sbentley2019/scheduler/blob/master/public/docs/InterviewScheduler-AddAppointment.png?raw=true)
@@ -15,10 +16,11 @@ Interview Scheduler is an application that displays a schedule of interview appo
 
 ## Getting Started
 
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web client using the `npm start` command.
-4. Go to <http://localhost:8000/> in your browser.
+1. Clone this repository into a local folder.
+2. Clone the server `https://github.com/sbentley2019/scheduler-api` into a local folder.
+3. Install both dependencies using the `npm install`.
+4. Start both the server and web client using the `npm start` command.
+5. Go to <http://localhost:8000/> in your browser.
 
 ## Running Webpack Development Server
 
